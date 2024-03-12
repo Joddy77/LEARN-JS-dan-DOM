@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <button>hello</button>
+    <button class="js-button">Second button</button>
+
+    <script>
+        // MENAMPILKAN STRING hello PADA CONSOLE
+        // KETIKA MENGGUNAKAN INI BERARTI quarySelector HANYA MENGAMBIL BUTTON PERTAMA DARI BODY
+        console.log(document.querySelector('button').innerHTML);
+
+        // MENGUBAH NILAI YG ADA DI BUTTON MENJADI 'changed', DAN KITA BISA MEMBUATNYA LEBIH MUDAH DI BAWA DENGAN CARA innerHTML DI PISAH SEPERTI DI BAWAH
+        document.querySelector('button')
+            .innerHTML = 'Changed';
+
+        // KITA BISA JUGA MEMANGGIL MENGGUNAKAN ATRIBUT class DAN DI MASUKKAN KE DALAM VARIABEL SEPERTI DI BAWAH INI.
+        const buttonElement = document.querySelector('.js-button');
+        console.log(buttonElement);
+
+        /*
+        // documen.title HANYA AKAN MENGUBAH TITLE DARI SEBUAH HALAMAN TETAPI TETAP MENAMPILKAN NILAI PERTAMA KETIKA DI CONSOLE
+        console.log(document.title);
+        document.title = 'Changed';
+
+        // document.body AKAN MENAMPILKAN ELEMENT YG ADA DI DALAM BODY
+        console.log(document.body);
+        // KETIKA KITA MEMBERI typeof MAKA document.body ADALAH SEBUAH object
+        console.log(typeof document.body);
+
+        // document.body.innerHTML AKAN MEMBERIKAN SEMUA ELEMENT YG ADA DI DALAM BODY TERMASUK SCRIPT JIKA TERDAPAT KARNA innerHTML BERARTI SEMUA YANG BERADA DI HTML BAGIAN BODY
+        console.log(document.body.innerHTML);
+        // INI AKAN MENGUBAH SELURUH BADIAN DARI HTML DI BODY DENGAN BUTTON Good job!
+        document.body.innerHTML = '<button>Good job!</button>';
+        */
+
+        /*
+        // DENGAN DOCUMENT INI AKAN MENGGANTIKAN BUTTON HELLO MENJADI STRING HELLO 
+        document.body.innerHTML = 'hello';
+
+        // DENGAN DOCUMENT INI AKAN MENGGANTIKAN TITLE DOM MENJADI Good job!
+        document.title = 'Good job!';
+        */
+    </script>
+</body>
+</html>

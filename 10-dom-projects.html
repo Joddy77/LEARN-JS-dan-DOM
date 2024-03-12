@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .subscribe-button {
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 35px;
+        }
+
+        .is-subscribed {
+            background-color: rgb(240, 240, 240);
+            color: black;
+        }
+
+        .cost-input {
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        .calculate-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>YouTube Subscribe  Button</p>
+    <button onclick="
+        subscribe();
+    " class="js-subscribe-button subscribe-button">
+    Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+
+    <!-- Atribut onkeydown adalah untuk menjalankan JS saat kita menekan tombol di keyboard kita. -->
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+        // event ADALAH SEBUAH OBJECT DALAM JS YG DAPAT KITA GUNAKAN UNTUK MENGETAHUI TOMBOL APA YG KITA KLIK.
+        handleCostKeydown(event);
+    ">
+    <button onclick="
+        calculateTotal();
+    " class="calculate-button">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <script>
+
+        function handleCostKeydown(event) {
+
+            // .key DALAM event.key UNTUK MENDAPATKAN NILAI DARI APA YANG KITA SUDAH KLIK PADA KEYBOARD
+            if (event.key === 'Enter') {
+                calculateTotal();
+            }
+        }
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('.js-cost-input');
+
+            // UNTUK MEMBERI NILAI PADA VARIABEL inputElement KITA BISA MENGGUNAKAN .value SEPERTI DI BAWAH
+
+            // Number() UNTUK MENGUBAH NILAI STRING MENJADI NUMBER
+
+            // FYI SETIAP KITA MENGGUNAKAN DOM MAKA ITU AKAN BERNILAI STRING DAN JIKA INGIN MENGHITUNG MATH DALAM DOM MAKA HARUS DI UBAH MENJADI NUMBER TERLEBIH DAHULU
+            let cost = Number(inputElement.value);
+
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+
+            document.querySelector('.js-total-cost')
+                .innerHTML = `$${cost}`;
+        }
+
+        function subscribe () {
+            const buttonElement = document.querySelector('.js-subscribe-button');
+
+            // GUNAKAN innerText UNTUK MEMBERI TEKS TANPA SPASI TAMBAHAN.   
+            if (buttonElement.innerText  === 'Subscribe') {
+                buttonElement.innerHTML = 'Subscribed';
+
+                // .classList MEMBERI KITA KENDALI ATAS ATRIBUT class PADA HTML BISA UNTUK MENAMBAH, MENGHAPUS, BAHKAN MEMANIPULASI class
+                // DAN .add() ADALAH SEBUAH METODE DARI .classList YANG DI GUNAKAN UNTUK MENAMBAH SATU ATAU LEBIH class KE ELEMENT
+                buttonElement.classList.add('is-subscribed');
+            } else {
+                buttonElement.innerHTML = 'Subscribe';
+
+                // .remove() ADALAH SEBUAH METODE DARI .classList YANG DI GUNAKAN UNTUK MENGHAPUS class
+                buttonElement.classList.remove('is-subscribed');
+            }
+        }
+    </script>
+</body>
+</html>

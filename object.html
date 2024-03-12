@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Dalam Js</title>
+</head>
+<body>
+    <script>
+        /*
+        // CARA MENGGUNAKAN OBJECT
+        const product = {
+            name: 'sock',
+            price: 1090
+        };
+        console.log(product);
+
+        // CARA MEMANGGIL NILAI YANG BERADA DI DALAM OBJECT SEPERTI DI BAWAH
+        console.log(product.name);
+        console.log(product.price);
+
+        // KITA JUGA BISA MENGUBAH NILAI YANG BERADA DI DALAM OBJECT SEPERTI BERIKUT 
+        product.name = 'cotton socks'
+        console.log(product);
+
+        // KITA JUGA BISA MENAMBAHKAN NILAI DI DALAM OBJECT JIKA BELUM TERDAPAT VARIABELNYA SEPERTI BERIKUT
+        product.newProperty = true;
+        console.log(product);
+
+        // MENGHAPUS NILAI YANG TIDAK DI PERLUKAN LAGI 
+        delete product.newProperty;
+        console.log(product)
+        */
+
+        /*
+        const product2 = {
+            name: 'shirt',
+            'delivery-time': '1 day',
+            rating: {
+                start: 4.5,
+                count: 87
+            }, 
+            fun: function function1() {
+                console.log('funtion inside object');
+            }
+        }
+        console.log(product2);
+        console.log(product2.name);
+        console.log(product2['name']);
+        console.log(product2['delivery-time']);
+
+        console.log(product2.rating.count);
+        product2.fun();
+        */
+
+        /* JSON di gunakan ketika :
+        - ingin mengirim data antara dua komputer jika menggunakan bahasa pemograman yg lain.
+        - dan ketika ingin menyimpan data.
+        */ 
+
+        // stringify pada json di bawah adalah metode untuk mengubah sebuah nilai menjadi syntax sesuai dengan syntax di JSON atau merubahnya menjadi string.
+        // FYI ketika sebuah nilai variabel berisi sebuah function, JSON tidak akan membaca funtion itu.
+        // console.log(JSON.stringify(product2));
+        
+        // const jsonString = JSON.stringify(product2);
+        // Untuk mengembalikan JSON ke bentuk OBJECT kembali gunakan metode JSON.parse() seperti di bawah.
+        // console.log(JSON.parse(jsonString));
+
+        // localStorage di gunakan untuk menyimpan nilai secara lebih permanen.
+        // localStorage();
+
+        const object1 = {
+            message: 'hello'
+        };
+        const object2 = object1;
+
+        object1.message = 'Good job!';
+        console.log(object1);
+        console.log(object2);
+
+        const object3 = {
+            message: 'Good job!'
+        }
+        console.log(object3 === object1); // OUTPUT AKAN FALSE KARNA KETIKA OBJECT DI BANDINGKAN DENGAN OBJECT DENGAN REFERENSI YANG BERBEDA KOMPTER AKAN MEMBERI NILAI FALSE
+        
+        console.log(object2 === object1); // OUTPUT AKAN TRUE KARNA 1 REFERENSI
+
+        // SHORTCUT DENGAN OBJECT
+        const object4 = {
+            message: 'Good job!',
+            price: 799
+        };
+        console.log(object3 === object1);
+
+        // const message = object4.message;
+
+        const { message, price } = object4; // INI ADALAH DESTRUCTURING UNTUK MEMBUAT PINTASAN DENGAN FUNGSI MENGELUARKAN PROPERTI DARI OBJECT
+        console.log(message); // OUTPUT AKAN MENGELUARKAN Good job!
+        console.log(price); // OUTPUT AKAN MENGELUARKAN 799
+
+        // SHORTHAND PROPERTY
+        const object5 = {
+            // message: message // FUNGSINYA ADALAH MENGAMBIL NILAI APA SAJA YANG ADA DI DALAM VARIABLE message SEBELUMNYA DAN MENGGANTINYA LE DALAM KODE INI.
+
+            message, // INI SAMA SEPERTI DI ATAS HANYA SAJA KETIKA KITA INGIN MEMANGGIL SEBUAH VARIABLE DAN NAMA VARIABLE YG INGIN KITA PANGGIL SAMA DENGAN SEBELUMNYA CUKUP KETIK SEPERTI INI DAN INI DI SEBUT SHORTHAND PROPERTY.
+
+            /*
+            method: function function1() {
+                console.log('method');
+            }
+            */
+
+            // INI SAMA SEPERTI DI ATAS DAN INI DI SEBUT DENGAN SHORTHAND METHOD
+            method() {
+                console.log('method');
+            }
+        };
+        console.log(object5);
+        object5.method();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans</title>
+</head>
+<body>
+    <script>
+        /* Shortcuts untuk If-Statements :
+        - Ternary Operator ?:
+        - Guard Operator &&
+        - Default Operator || 
+        */
+
+        // Contoh pertama Ternary Operator ?:
+        true ? 'truthy' : 'falsy'; 
+        /* 
+            Sama seperti If-Statement di bacanya seperti ini 
+            if (condition) {
+                'truthy';
+            } else {
+                'falsy'
+            } 
+        */
+
+        // Cara ini memudahkan kita ketika ingin membuat If-Statement di dalam variabel seperti ini :
+        const result = true ? 'truthy' : 'falsy'; 
+        console.log(result);
+
+        // Contoh kedua Guard Operator &&
+        false && console.log('hello');
+        /* 
+            Sama seperti ini :
+            if(condition) {
+                console.log('hello');
+            } 
+        */
+
+        // Contoh untuk menggunakannya dalam variabel :
+        // Jika nilai awalnya false dia akan berhenti dan menampilkan nilai false, tapi jika awalnya di beri nilai dia akan menampilkan selanjutnya yaitu 'hello'
+        const message = false && 'hello';
+        console.log(message);
+
+        // Contoh ketiga Default Operator || 
+        /* 
+            Sama seperti ini :
+            let currency;
+
+            if (!condition) {
+                currency = 'USD';
+            }
+        */
+
+        // Contoh untuk menggunakannya dalam variabel :
+        const currency = undefined || 'USD';
+        console.log(currency);
+        // Output akan mengeluarkan nilai default yaitu 'USD'
+
+    </script>
+</body>
+</html>
